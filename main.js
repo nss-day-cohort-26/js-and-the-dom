@@ -15,29 +15,18 @@ const messagesArticle = document.querySelector("#messages")
 
 const sectionsFragment = document.createDocumentFragment()
 
-const sectionOne = document.createElement("section")
-sectionOne.className = "message"
-sectionOne.textContent = "Hello"
-sectionsFragment.appendChild(sectionOne)
+const createSectionEl = (sectionText) => {
+  const sectionEl = document.createElement("section")
+  sectionEl.className = "message"
+  sectionEl.textContent = sectionText
+  return sectionEl
+}
 
-const sectionTwo = document.createElement("section")
-sectionTwo.className = "message"
-sectionTwo.textContent = "So, the surgery took like 20 minutes"
-sectionsFragment.appendChild(sectionTwo)
+const sectionTexts = ["Hello", "So, the surgery took like 20 minutes", "I wouldn't believe them when they said I'm all done", "But they insisted and basically escorted me out of the room", "I'm gonna take a nap now"]
 
-const sectionThree = document.createElement("section")
-sectionThree.className = "message"
-sectionThree.textContent = "I wouldn't believe them when they said I'm all done"
-sectionsFragment.appendChild(sectionThree)
-
-const sectionFour = document.createElement("section")
-sectionFour.className = "message"
-sectionFour.textContent = "But they insisted and basically escorted me out of the room"
-sectionsFragment.appendChild(sectionFour)
-
-const sectionFive = document.createElement("section")
-sectionFive.className = "message"
-sectionFive.textContent = "I'm gonna take a nap now"
-sectionsFragment.appendChild(sectionFive)
+for (let i = 0; i < sectionTexts.length; i++) {
+  const sectionElement = createSectionEl(sectionTexts[i])
+  sectionsFragment.appendChild(sectionElement)
+}
 
 messagesArticle.appendChild(sectionsFragment)
